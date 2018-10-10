@@ -1,0 +1,35 @@
+
+// Color Palette
+
+$primary:   #ff006c;
+$secondary: #e9ecef;
+$accent:    #100B22;
+
+$white: #fff;
+$grey:  #868e96;
+$black: #212529;
+
+// Fonts
+
+@import 'https://fonts.googleapis.com/css?family=Roboto:400,500,700';
+@import '../fonts/product_sans_webfont/stylesheet.css';
+
+$header-font: 'Product Sans', 'Roboto' , sans-serif;
+$body-font: 'Roboto', Helvetica, sans-serif;
+
+$header-font-color: $primary;
+$body-font-color: $accent;
+
+// Easings
+
+@mixin transition($values...) {
+	-webkit-transition: $values;
+  -moz-transition: $values;
+  -ms-transition: $values;
+  -o-transition: $values;
+  transition: $values;
+}
+
+$slow: all 500ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$normal: all 200ms cubic-bezier(0.86, 0, 0.07, 1);
+$fast: all 80ms ease;

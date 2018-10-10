@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" lang="en-US">
+    <title>Fresh Tomatoes Movie Trailers</title>
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Internal Styles -->
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        .modal-dialog {
+            max-width: none!important;
+        }
+        .modal-dialog-centered {
+            justify-content: center;
+        }
+        #trailer .modal-content {
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            border: none;
+            transition: all 100ms ease;
+        }
+        .movie-tile:hover {
+            cursor: pointer;
+        }
+        .movie-tile:hover h3 {
+            color: #000;
+        }
+        .movie-tile .card-img-top {
+            transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.75);
+            border-radius: 1em;
+            box-shadow: 0px 5px 10px rgba(0,0,0,0.15)
+        }
+        .movie-tile:hover .card-img-top {
+            transform: scale(0.80);
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.35)
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        .movies-header {
+            margin: 1em 0 0.36em 0;
+        }
+        .navbar {
+            box-shadow: 0px 5px 10px rgba(0,0,0,0.15);
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+    </style>
+
+    <script type="text/javascript" charset="utf-8">
+
+        // Pause the video when the modal is closed
+
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+        
+        // Remove the src so the player itself gets removed, as this is the only
+        // reliable way to ensure the video stops playing in IE
+
+            $("#trailer-video-container").empty();
+
+        });
+
+        // Start playing the video whenever the trailer modal is opened
+        
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+                'id': 'trailer-video',
+                'type': 'text-html',
+                'src': sourceUrl,
+                'frameborder': 0
+            }));
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal fade" id="trailer">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <!-- Modal iframe content -->
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light justify-content-between">
+        <div class="container">
+            <a class="navbar-brand" href="#0"><strong>Fresh Tomatoes</strong> Movie Trailers</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="movies-header">Movies</h1>
+        <hr><br>
+        <div class="row justify-content-around">
+            
+<div class="col-md-4 col-sm-5 col-xs-8">
+    <div class="movie-tile card" data-trailer-youtube-id="XFYWazblaUA" data-toggle="modal" data-target="#trailer">
+        <img class="card-img-top" src="http://bit.ly/2FsV0kU" alt="The Shape of Water poster image">
+        <div class="container">
+            <h3 style="text-align: center; transition: all 180ms ease">The Shape of Water</h3>
+            <p>At a top secret research facility in the 1960s, a lonely janitor forms a unique relationship with an amphibious creature that is being held in captivity. </p>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 col-sm-5 col-xs-8">
+    <div class="movie-tile card" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+        <img class="card-img-top" src="http://bit.ly/2oNa2bc" alt="Avatar poster image">
+        <div class="container">
+            <h3 style="text-align: center; transition: all 180ms ease">Avatar</h3>
+            <p>A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.</p>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 col-sm-5 col-xs-8">
+    <div class="movie-tile card" data-trailer-youtube-id="ePbKGoIGAXY" data-toggle="modal" data-target="#trailer">
+        <img class="card-img-top" src="http://bit.ly/2vGhZU4" alt="Interstellar poster image">
+        <div class="container">
+            <h3 style="text-align: center; transition: all 180ms ease">Interstellar</h3>
+            <p>A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.</p>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 col-sm-5 col-xs-8">
+    <div class="movie-tile card" data-trailer-youtube-id="3PsUJFEBC74" data-toggle="modal" data-target="#trailer">
+        <img class="card-img-top" src="http://bit.ly/2Fta2Xj" alt="School of Rock poster image">
+        <div class="container">
+            <h3 style="text-align: center; transition: all 180ms ease">School of Rock</h3>
+            <p>An unlikely rock fanatic takes a shot at teaching it to young school students.</p>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 col-sm-5 col-xs-8">
+    <div class="movie-tile card" data-trailer-youtube-id="c3sBBRxDAqk" data-toggle="modal" data-target="#trailer">
+        <img class="card-img-top" src="http://bit.ly/2oPHWfn" alt="Ratatouille poster image">
+        <div class="container">
+            <h3 style="text-align: center; transition: all 180ms ease">Ratatouille</h3>
+            <p>A rat finds himself behind the scenes with an unlikely to be chef</p>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 col-sm-5 col-xs-8">
+    <div class="movie-tile card" data-trailer-youtube-id="mfmrPu43DF8" data-toggle="modal" data-target="#trailer">
+        <img class="card-img-top" src="http://bit.ly/2oYosnM" alt="Hunger Games poster image">
+        <div class="container">
+            <h3 style="text-align: center; transition: all 180ms ease">Hunger Games</h3>
+            <p>Katniss Everdeen voluntarily takes her younger sister's place in the Hunger Games: a televised competition in which two teenagers from each of the twelve Districts of Panem are chosen at random to fight to the death.</p>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+  </body>
+</html>
